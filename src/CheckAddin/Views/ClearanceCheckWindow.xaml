@@ -1,0 +1,39 @@
+<Window x:Class="CheckAddin.Views.ClearanceCheckWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="配管漏水リスクチェック" Height="450" Width="720"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip">
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,8">
+            <TextBlock Text="判定距離(m):" VerticalAlignment="Center" Margin="0,0,8,0"/>
+            <TextBox x:Name="DistanceTextBox" Width="80" Text="0.3" VerticalAlignment="Center"/>
+            <TextBlock Text="配管システム:" VerticalAlignment="Center" Margin="16,0,8,0"/>
+            <ComboBox x:Name="PipingSystemTypeComboBox" Width="160" VerticalAlignment="Center"
+                      DisplayMemberPath="Name"/>
+            <Button x:Name="RunButton" Content="実行" Width="80" Margin="12,0,0,0" Click="RunButton_Click"/>
+        </StackPanel>
+
+        <TextBlock x:Name="StatusTextBlock" Grid.Row="1" Margin="0,0,0,8" TextWrapping="Wrap"/>
+
+        <DataGrid x:Name="ResultsDataGrid" Grid.Row="2" AutoGenerateColumns="False"
+                  IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"
+                  MouseDoubleClick="ResultsDataGrid_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="電気設備ID" Binding="{Binding ElectricalIdDisplay}" Width="90"/>
+                <DataGridTextColumn Header="ファミリ名" Binding="{Binding ElectricalFamilyName}" Width="140"/>
+                <DataGridTextColumn Header="電気設備レベル" Binding="{Binding ElectricalLevel}" Width="110"/>
+                <DataGridTextColumn Header="配管ID" Binding="{Binding PipeIdDisplay}" Width="90"/>
+                <DataGridTextColumn Header="系統名" Binding="{Binding PipeSystemName}" Width="110"/>
+                <DataGridTextColumn Header="配管レベル" Binding="{Binding PipeLevel}" Width="100"/>
+                <DataGridTextColumn Header="距離(m)" Binding="{Binding DistanceMetersDisplay}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

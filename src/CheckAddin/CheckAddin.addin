@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Name>配管漏水リスクチェック</Name>
+    <Assembly>./CheckAddin.dll</Assembly>
+    <AddInId>5aa1b8d0-c1af-4752-ac58-fe3812aa6db8</AddInId>
+    <FullClassName>CheckAddin.Commands.CheckClearanceCommand</FullClassName>
+    <VendorId>NKAD</VendorId>
+    <VendorDescription>norito.kitta@gmail.com</VendorDescription>
+    <Text>配管漏水リスクチェック</Text>
+    <Description>電気設備直上の配管近接干渉をチェックします</Description>
+  </AddIn>
+</RevitAddIns>
